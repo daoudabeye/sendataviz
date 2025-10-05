@@ -16,6 +16,9 @@ export default defineConfig(({ mode }) => {
         // Cloudflare plugin after RR to prevent id/transform mismatches
         //cloudflare({ viteEnvironment: { name: "ssr" } }),
     ],
+    optimizeDeps: {
+      exclude: ["virtual:react-router/server-build"],
+    },
     // No extra SSR/resolve/define overrides – let plugins handle it
     server: {
       port: 5180,
