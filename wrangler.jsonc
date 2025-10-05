@@ -1,7 +1,15 @@
 {
     "name": "sendataviz",
     "compatibility_date": "2025-10-05",
+    "main": "./workers/app.ts",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"observability": {
+		"enabled": true
+	},
     "assets": {
         "directory": "./build/client"
-    }
+    },
+    "upload_source_maps": true
 }
