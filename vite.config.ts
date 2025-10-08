@@ -9,16 +9,12 @@ export default defineConfig(({ mode }) => {
   return {
     // Ensure reactRouter() runs first so its framework context is set up before others
     plugins: [
+      cloudflare({ viteEnvironment: { name: "ssr" } }),
         // Let React Router establish framework context first
         reactRouter(),
         tailwindcss(),
         tsconfigPaths(),
-        // Cloudflare plugin after RR to prevent id/transform mismatches
-        //cloudflare({ viteEnvironment: { name: "ssr" } }),
     ],
-    optimizeDeps: {
-      exclude: ["virtual:react-router/server-build"],
-    },
     // No extra SSR/resolve/define overrides – let plugins handle it
     server: {
       port: 5180,
