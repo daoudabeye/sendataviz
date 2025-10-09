@@ -10,10 +10,10 @@ export default defineConfig(({ mode }) => {
     // Ensure reactRouter() runs first so its framework context is set up before others
     plugins: [
       cloudflare({ viteEnvironment: { name: "ssr" } }),
-        // Let React Router establish framework context first
-        reactRouter(),
-        tailwindcss(),
-        tsconfigPaths(),
+      // Let React Router establish framework context first
+      reactRouter(),
+      tailwindcss(),
+      tsconfigPaths(),
     ],
     // No extra SSR/resolve/define overrides – let plugins handle it
     server: {
@@ -21,14 +21,3 @@ export default defineConfig(({ mode }) => {
     },
   };
 });
-/*
-export default defineConfig({
-  plugins: [
-    tailwindcss(),
-    reactRouter(),
-    tsconfigPaths(),
-    // Cloudflare plugin after RR to prevent id/transform mismatches
-    //cloudflare({ viteEnvironment: { name: "ssr" } }),
-  ],
-});
-*/
